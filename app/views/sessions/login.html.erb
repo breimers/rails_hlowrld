@@ -1,0 +1,7 @@
+<% @page_title = "Login" -%>
+<h1>--Login--</h1>
+<%= form_with scope: :login_attempt, local:true do |form| %>
+	<p>username:  <%= text_field_tag(:username) %></p><br>
+	<p>passphrase: <%= password_field_tag(:login_password) %></p><br>
+	<%= submit_tag("Login") %>
+<% end %>

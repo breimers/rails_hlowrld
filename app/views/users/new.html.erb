@@ -1,10 +1,11 @@
 <% @page_title = "UserAuth | Signup" %>
 <h1>New User</h1>
-<%= form_for(:user, :url => {:controller 'users', :action => 'create'}) do |f|%>
-	<p>username:  <%=f.text_field :username%></p><br>
-	<p>passphrase: <%f.password_field :password%></p><br>
-	<p>conf pass: <%f.password_field :password_confirmation%></p><br>
-	<%=f.submit :Signup %>
+
+<%= form_with scope: :create, local:true do |form| %>
+	<p>username:  <%=form.text_field :username%></p><br>
+	<p>passphrase: <%=form.password_field :password%></p><br>
+	<p>conf pass: <%=form.password_field :password_confirmation%></p><br>
+	<%=form.submit :Signup %>
 <% end %>
 <br><br>
 <% if @user.errors.any? %>
